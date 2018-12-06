@@ -1,0 +1,4 @@
+<div style="width:55%; background-color:#E9E9E9; color:#000; padding:1em; border: solid 1px #000; margin: 0 auto;">
+Installed, Thank you for installing my mod!
+<br />
+</div>

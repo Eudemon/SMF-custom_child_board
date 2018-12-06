@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>sbmcos:set_child_name</id>
+	<version>2.7</version>
+
+	<file name="$themedir/BoardIndex.template.php">
+		<operation>
+			<search position="replace"><![CDATA[', $txt['parent_boards'], ']]></search>
+			<add><![CDATA[', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], ']]></add>
+		</operation>
+	</file>
+	<file name="$themedir/Settings.template.php">
+		<operation>
+			<search position="replace"><![CDATA[array(
+			'id' => 'number_recent_posts',
+			'label' => $txt['number_recent_posts'],
+			'description' => $txt['number_recent_posts_desc'],
+			'type' => 'number',
+		),]]></search>
+			<add><![CDATA[array(
+			'id' => 'number_recent_posts',
+			'label' => $txt['number_recent_posts'],
+			'description' => $txt['number_recent_posts_desc'],
+			'type' => 'number',
+		),
+		array(
+			'id' => 'scn',
+			'label' => $txt['scn1'],
+			'description' => $txt['scn2'],
+			'type' => 'text',
+),]]></add>
+		</operation>
+		</file>
+		
+	<file name="$themedir/MessageIndex.template.php">
+	<operation>
+	<search position="replace"><![CDATA[<td colspan="4" class="catbg">', $txt['parent_boards'], '</td>]]></search>
+	<add><![CDATA[<td colspan="4" class="catbg">', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], '</td>]]></add>
+	</operation>
+	<operation>
+	<search position="replace"><![CDATA[<td colspan="4" class="catbg">', $txt['parent_boards'], '</td>]]></search>
+	<add><![CDATA[<td colspan="4" class="catbg">', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], '</td>]]></add>
+	</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Enter the desired alternate for "Child Boards"';
+$txt['scn2'] = 'You may also use bbc codes: image, flash, music, color, font, size etc.';
+
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$languagedir/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Enter the desired alternate for "Child Boards"';
+$txt['scn2'] = 'You may also use bbc codes: image, flash, music, color, font, size etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_es.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_es-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_latin.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_latin-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+</modification>

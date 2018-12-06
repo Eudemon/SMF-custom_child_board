@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>sbmcos:set_child_name</id>
+	<name>Customize *Child Board*</name>
+	<version>2.7</version>
+	<type>modification</type>
+
+	<install for="1.1.0-1.1.99">
+		<readme type="file" parsebbc="true">readme.txt</readme>
+		<modification type="file">install1x.xml</modification>
+		<redirect url="$scripturl?action=admin;area=packages;sa=browse;" timeout="4000">installed.txt</redirect>
+	</install>
+
+	<uninstall for="1.1.0-1.1.99">
+		<readme type="file" parsebbc="true">readme.txt</readme>
+		<modification type="file" reverse="true">install1x.xml</modification>
+		<redirect url="$scripturl?action=admin;area=packages;sa=browse;" timeout="4000">removed.txt</redirect>
+	</uninstall>
+
+	
+	<install for="2.0-2.99">
+		<readme type="file" parsebbc="true">readme.txt</readme>
+		<modification type="file">install2x.xml</modification>
+		<redirect url="$scripturl?action=admin;area=packages;sa=browse;" timeout="4000">installed.txt</redirect>
+	</install>
+
+	<uninstall for="2.0-2.99">
+		<readme type="file" parsebbc="true">readme.txt</readme>
+		<modification type="file" reverse="true">install2x.xml</modification>
+		<redirect url="$scripturl?action=admin;area=packages;sa=browse;" timeout="4000">removed.txt</redirect>
+	</uninstall>
+</package-info>

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>sbmcos:set_child_name</id>
+	<version>2.7</version>
+
+	<file name="$themedir/BoardIndex.template.php">
+		<operation>
+			<search position="before"><![CDATA[global $context, $settings, $options, $txt, $scripturl, $modSettings]]></search>
+			<add><![CDATA[, $sourcedir]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[// Sort the links into an array with new boards bold so it can be imploded.]]></search>
+			<add><![CDATA[
+			if (!empty($settings['scn'])){
+			require_once($sourcedir . '/Subs-Editor.php');
+			$settings['scn'] = bbc_to_html($settings['scn']);
+			}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[', $txt['parent_boards'], ']]></search>
+			<add><![CDATA[', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], ']]></add>
+		</operation>
+	</file>
+	<file name="$themedir/Settings.template.php">
+		<operation>
+			<search position="replace"><![CDATA[array(
+			'id' => 'number_recent_posts',
+			'label' => $txt['number_recent_posts'],
+			'description' => $txt['number_recent_posts_desc'],
+			'type' => 'number',
+		),]]></search>
+			<add><![CDATA[array(
+			'id' => 'number_recent_posts',
+			'label' => $txt['number_recent_posts'],
+			'description' => $txt['number_recent_posts_desc'],
+			'type' => 'number',
+		),
+		array(
+			'id' => 'scn',
+			'label' => $txt['scn1'],
+			'description' => $txt['scn2'],
+			'type' => 'text',
+),]]></add>
+		</operation>
+		</file>
+		
+	<file name="$themedir/MessageIndex.template.php">
+		<operation>
+			<search position="before"><![CDATA[global $context, $settings, $options, $scripturl, $modSettings, $txt]]></search>
+			<add><![CDATA[, $sourcedir]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[if (!empty($context['boards'])]]></search>
+			<add><![CDATA[
+			if (!empty($settings['scn'])){
+			require_once($sourcedir . '/Subs-Editor.php');
+			$settings['scn'] = bbc_to_html($settings['scn']);
+			}
+			]]></add>
+		</operation>
+	<operation>
+	<search position="replace"><![CDATA[', $txt['parent_boards'], ']]></search>
+	<add><![CDATA[', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], ']]></add>
+	</operation>
+	<operation>
+	<search position="replace"><![CDATA[', $txt['parent_boards'], ']]></search>
+	<add><![CDATA[', !empty($settings['scn']) ? $settings['scn'] : $txt['parent_boards'], ']]></add>
+	</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Enter the desired alternate for "Child Boards"';
+$txt['scn2'] = 'You may also use bbc codes: image, flash, music, color, font, size etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Enter the desired alternate for "Child Boards"';
+$txt['scn2'] = 'You may also use bbc codes: image, flash, music, color, font, size etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_es.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_es-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_latin.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+	<file name="$languagedir/Modifications.spanish_latin-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['scn1'] = 'Introduce la alternativa deseada para los "subforos"';
+$txt['scn2'] = 'Tambi¨¦n puedes ocupar los c¨®digos bbc: imagen, flash, m¨²sica, color, fuente, tama?o etc.';
+
+]]></add>
+		</operation>
+	</file>
+</modification>
