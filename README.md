@@ -1,7 +1,5 @@
 #About:
 
-Author: Randy (HaoRan) Yu (Eudemon) - eudemonrandy@hotmail.com
-
 compatible with SMF 1.X and 2.X, feel free to contribute to this code base
 
 you can download the module via https://custom.simplemachines.org/mods/index.php?mod=1867
